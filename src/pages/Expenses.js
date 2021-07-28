@@ -3,9 +3,21 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Expenses extends Component {
+
+  constructor() {
+    super();
+
+    this.handleDeleteColumn = this.handleDeleteColumn.bind(this);
+  }
+
   convertCurrency(expense) {
     return (parseFloat(expense.exchangeRates[expense.currency].ask)
     * parseFloat(expense.value)).toFixed(2);
+  }
+
+  handleDeleteColumn(ev, id) {
+    const getRow = document.getElementById(`row${id}`);
+    getRow.remove(ev.target);
   }
 
   render() {
@@ -27,7 +39,7 @@ class Expenses extends Component {
         </thead>
         <tbody>
           {getExpenses.map((expense) => (
-            <tr key={ expense.id }>
+            <tr key={ expense.id } id={ `row${expense.id}` }>
               <td>{expense.description}</td>
               <td>{expense.tag}</td>
               <td>{expense.method}</td>
@@ -43,7 +55,13 @@ class Expenses extends Component {
               <td>Real</td>
               <td>
                 <button type="button" data-testid="edit-btn">Editar</button>
-                <button type="button" data-testid="delete-btn">Excluir</button>
+                <button
+                  type="button"
+                  data-testid="delete-btn"
+                  onClick={ (ev) => this.handleDeleteColumn(ev, expense.id) }
+                >
+                  Excluir
+                </button>
               </td>
             </tr>
           ))}
