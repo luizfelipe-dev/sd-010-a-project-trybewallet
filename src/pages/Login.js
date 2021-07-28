@@ -89,7 +89,7 @@ class Login extends React.Component {
             <button
               id="buttonSubmit"
               type="submit"
-              onClick={ this.handleClick }
+              // onClick={ this.handleClick }
               disabled
             >
               Entrar

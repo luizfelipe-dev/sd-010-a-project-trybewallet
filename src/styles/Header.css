@@ -1,0 +1,6 @@
+header {
+  align-items: center;
+  display: flex;
+  height: 8vh;
+  justify-content: space-around;
+}
