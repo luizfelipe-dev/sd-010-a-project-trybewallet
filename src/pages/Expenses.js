@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { decreaseTotalExpenseAction } from '../actions';
 
 class Expenses extends Component {
-
   constructor() {
     super();
 
@@ -15,7 +15,12 @@ class Expenses extends Component {
     * parseFloat(expense.value)).toFixed(2);
   }
 
-  handleDeleteColumn(ev, id) {
+  handleDeleteColumn(ev, id, tableItem) {
+    const { decreaseExpense } = this.props;
+
+    const tdValue = document.getElementById(tableItem).innerHTML;
+    decreaseExpense(tdValue);
+
     const getRow = document.getElementById(`row${id}`);
     getRow.remove(ev.target);
   }
@@ -31,8 +36,8 @@ class Expenses extends Component {
             <th>Método de pagamento</th>
             <th>Valor</th>
             <th>Moeda</th>
-            <th>Câmbio Utilizado</th>
-            <th>Valor Convertido</th>
+            <th>Câmbio</th>
+            <th>Semi-Total</th>
             <th>Moeda de Conversão</th>
             <th>Editar/Excluir</th>
           </tr>
@@ -48,9 +53,11 @@ class Expenses extends Component {
               <td>
                 {parseFloat(expense.exchangeRates[expense.currency].ask).toFixed(2)}
               </td>
-              <td>
-                {(Number(expense.value)
-                * Number(expense.exchangeRates[expense.currency].ask)).toFixed(2) }
+              <td id={ `totalvalue${expense.id}` }>
+                {
+                  (Number(expense.value)
+                * Number(expense.exchangeRates[expense.currency].ask)).toFixed(2)
+                }
               </td>
               <td>Real</td>
               <td>
@@ -58,7 +65,7 @@ class Expenses extends Component {
                 <button
                   type="button"
                   data-testid="delete-btn"
-                  onClick={ (ev) => this.handleDeleteColumn(ev, expense.id) }
+                  onClick={ (ev) => this.handleDeleteColumn(ev, expense.id, `totalvalue${expense.id}`) }
                 >
                   Excluir
                 </button>
@@ -75,8 +82,13 @@ const mapStateToProps = (state) => ({
   getExpenses: state.wallet.expenses,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  decreaseExpense: (state) => dispatch(decreaseTotalExpenseAction(state)),
+});
+
 Expenses.propTypes = {
   getExpenses: PropTypes.func.isRequired,
+  decreaseExpense: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, null)(Expenses);
+export default connect(mapStateToProps, mapDispatchToProps)(Expenses);

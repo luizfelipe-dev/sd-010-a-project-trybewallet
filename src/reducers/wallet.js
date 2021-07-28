@@ -43,13 +43,17 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       counter: state.counter + 1,
     };
-
   case 'INCREASE_EXPENSE':
     return {
       ...state,
       totalValue: state.expenses.reduce((acc, curr) => (
         acc + Number(curr.value) * Number(curr.exchangeRates[curr.currency].ask)
       ), 0).toFixed(2),
+    };
+  case 'DECREASE_EXPENSE':
+    return {
+      ...state,
+      totalValue: state.totalValue - action.payload.tdItemValue,
     };
 
   default: return state;

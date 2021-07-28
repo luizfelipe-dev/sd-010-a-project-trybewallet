@@ -105,6 +105,13 @@ export const increaseTotalExpenseAction = (payload) => ({
   },
 });
 
+export const decreaseTotalExpenseAction = (payload) => ({
+  type: 'DECREASE_EXPENSE',
+  payload: {
+    tdItemValue: payload,
+  },
+});
+
 export const updateTotalValueAction = (payload) => ({
   type: 'UPDATE_TOTAL_VALUE',
   payload: {
