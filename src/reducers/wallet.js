@@ -53,7 +53,7 @@ const wallet = (state = INITIAL_STATE, action) => {
   case 'DECREASE_EXPENSE':
     return {
       ...state,
-      totalValue: state.totalValue - action.payload.tdItemValue,
+      totalValue: (state.totalValue - action.payload.tdItemValue).toFixed(2),
     };
 
   default: return state;
