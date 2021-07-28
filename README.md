@@ -1,5 +1,7 @@
 # :money_with_wings: Trybe Wallet
 
+*-Projeto em desenvolvimento-*
+
 ## Sobre o projeto
 
 Neste projeto teremos uma carteira de controle de gastos com conversor de moedas. Ao utilizar essa aplicação um usuário deverá ser capaz de:
@@ -37,7 +39,7 @@ Para visualizar a aplicação você deve preencher um email e senha, **que podem
 
 ## :hammer: Quanto as partes Técnicas do Projeto:
 
-Este projeto foi desenvolvido com Javascript para treino de:
+Este projeto foi desenvolvido para treino de lógica em ambiente React com arquitetura Redux
 
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white">
 
