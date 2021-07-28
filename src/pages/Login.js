@@ -60,8 +60,8 @@ class Login extends React.Component {
   render() {
     return (
       <center>
+        <h1>Login</h1>
         <form>
-          <h1>Login</h1>
           <label htmlFor="email-input">
             Email:
             <input
