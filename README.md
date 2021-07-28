@@ -27,3 +27,17 @@ Via SSH: <code>git clone git@github.com:luizfelipe-dev/sd-010-a-project-trybewal
 :heavy_check_mark: Inicie o servidor local para rodar o projeto: <code>npm start</code> ou <code>yarn start</code>
 
 ----------------------------------------------------------------------------------------
+## :unlock: Logando no App
+
+Para visualizar a aplicação você deve preencher um email e senha, **que podem ser de ficção** :suspect:
+
+:heavy_check_mark: Para o email deverá conter @ e .com
+
+:heavy_check_mark: Para senha basta digitar mais de 5 dígitos quaisquer
+
+## :hammer: Quanto as partes Técnicas do Projeto:
+
+Este projeto foi desenvolvido com Javascript para treino de:
+
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white">
+
