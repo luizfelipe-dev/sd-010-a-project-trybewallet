@@ -24,6 +24,8 @@ Via SSH: <code>git clone git@github.com:luizfelipe-dev/sd-010-a-project-trybewal
 
 :heavy_check_mark: Inicie o servidor local para rodar o projeto: <code>npm start</code> ou <code>yarn start</code>
 
+:heavy_check_mark: Entre na Branch: <code>git checkout luizfelipedev-project-trybewallet</code>
+
 ## :unlock: Logando no App
 
 **Os dados abaixo podem ser fictícios** :suspect:
